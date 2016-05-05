@@ -54,7 +54,7 @@
             </objects>
             <point key="canvasLocation" x="774" y="251"/>
         </scene>
-        <!--Code View Controller-->
+        <!--Enter Code-->
         <scene sceneID="e4O-ta-IMv">
             <objects>
                 <viewController id="k3f-zC-ZLQ" customClass="CodeViewController" customModule="Esusu" customModuleProvider="target" sceneMemberID="viewController">
@@ -66,24 +66,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0c-wI-H5z">
-                                <rect key="frame" x="122" y="518" width="77" height="30"/>
-                                <state key="normal" title="Enter Code"/>
-                                <connections>
-                                    <segue destination="N5F-D6-16q" kind="presentation" id="zVL-c1-Jih"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First time user? Pick code. Otherwise, enter." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqS-I0-2CS">
                                 <rect key="frame" x="59" y="263" width="202" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RcV-5f-uIi">
+                                <rect key="frame" x="89" y="176" width="142" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jwE-aZ-khc"/>
+                    <navigationItem key="navigationItem" title="Enter Code" id="jwE-aZ-khc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Ybu-lk-bU6">
+                            <connections>
+                                <segue destination="N5F-D6-16q" kind="presentation" id="X1K-Yx-XzM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="textField" destination="RcV-5f-uIi" id="k0d-og-jaD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSr-kP-Qhn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

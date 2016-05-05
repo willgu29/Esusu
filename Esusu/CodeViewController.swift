@@ -10,10 +10,17 @@ import UIKit
 
 class CodeViewController: UIViewController {
 
+    @IBOutlet weak var textField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.textField.keyboardType = UIKeyboardType.NumberPad;
+        self.textField.becomeFirstResponder();
     }
 
     override func didReceiveMemoryWarning() {

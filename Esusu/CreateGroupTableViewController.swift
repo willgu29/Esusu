@@ -1,14 +1,14 @@
 //
-//  GroupTableViewController.swift
+//  CreateGroupTableViewController.swift
 //  Esusu
 //
-//  Created by William Gu on 5/1/16.
+//  Created by William Gu on 5/2/16.
 //  Copyright © 2016 Gu Studios. All rights reserved.
 //
 
 import UIKit
 
-class GroupTableViewController: UITableViewController {
+class CreateGroupTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +20,6 @@ class GroupTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func viewWillAppear(animated: Bool) {
-        
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -33,12 +29,12 @@ class GroupTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1;
+        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1;
+        return 0
     }
 
     /*
