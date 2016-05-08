@@ -11,6 +11,10 @@
 		8422D1831CD7EEBF00E36251 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422D1821CD7EEBF00E36251 /* FirebaseAPI.swift */; };
 		8422D1861CD7FF8300E36251 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422D1851CD7FF8300E36251 /* User.swift */; };
 		8422D1881CD7FFAF00E36251 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422D1871CD7FFAF00E36251 /* Group.swift */; };
+		845535881CDB08CD0027226A /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845535871CDB08CD0027226A /* GroupViewController.swift */; };
+		8455358A1CDB0C600027226A /* ChatMessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845535891CDB0C600027226A /* ChatMessagingViewController.swift */; };
+		845535921CDC28970027226A /* CreateNewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845535911CDC28970027226A /* CreateNewGroupViewController.swift */; };
+		8455359A1CDC299C0027226A /* PaymentScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845535991CDC299C0027226A /* PaymentScheduleTableViewController.swift */; };
 		846E2C9D1CD6A3E500F293D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E2C9C1CD6A3E500F293D2 /* AppDelegate.swift */; };
 		846E2CA21CD6A3E500F293D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846E2CA01CD6A3E500F293D2 /* Main.storyboard */; };
 		846E2CA51CD6A3E500F293D2 /* Esusu.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 846E2CA31CD6A3E500F293D2 /* Esusu.xcdatamodeld */; };
@@ -31,6 +35,10 @@
 		8422D1821CD7EEBF00E36251 /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
 		8422D1851CD7FF8300E36251 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8422D1871CD7FFAF00E36251 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		845535871CDB08CD0027226A /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		845535891CDB0C600027226A /* ChatMessagingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessagingViewController.swift; sourceTree = "<group>"; };
+		845535911CDC28970027226A /* CreateNewGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewGroupViewController.swift; sourceTree = "<group>"; };
+		845535991CDC299C0027226A /* PaymentScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentScheduleTableViewController.swift; sourceTree = "<group>"; };
 		846E2C991CD6A3E400F293D2 /* Esusu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Esusu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846E2C9C1CD6A3E500F293D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846E2CA11CD6A3E500F293D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,6 +102,50 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		845535861CDB08A70027226A /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				846E2CB81CD6F93D00F293D2 /* GroupTableViewController.swift */,
+				845535871CDB08CD0027226A /* GroupViewController.swift */,
+				845535891CDB0C600027226A /* ChatMessagingViewController.swift */,
+			);
+			name = Group;
+			sourceTree = "<group>";
+		};
+		8455358B1CDB118A0027226A /* People */ = {
+			isa = PBXGroup;
+			children = (
+				846E2CBA1CD6F94B00F293D2 /* PeopleTableViewController.swift */,
+			);
+			name = People;
+			sourceTree = "<group>";
+		};
+		8455358C1CDB11980027226A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				846E2CC21CD6FBE000F293D2 /* ProfileTableViewController.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		8455358D1CDC25EE0027226A /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				846E2CA01CD6A3E500F293D2 /* Main.storyboard */,
+				846E2CC71CD7013600F293D2 /* MainApp.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		845535901CDC287B0027226A /* CreateGroupVC */ = {
+			isa = PBXGroup;
+			children = (
+				845535911CDC28970027226A /* CreateNewGroupViewController.swift */,
+				845535991CDC299C0027226A /* PaymentScheduleTableViewController.swift */,
+			);
+			name = CreateGroupVC;
+			sourceTree = "<group>";
+		};
 		846E2C901CD6A3E400F293D2 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +167,8 @@
 		846E2C9B1CD6A3E500F293D2 /* Esusu */ = {
 			isa = PBXGroup;
 			children = (
+				845535901CDC287B0027226A /* CreateGroupVC */,
+				8455358D1CDC25EE0027226A /* Storyboards */,
 				8422D1841CD7FF7000E36251 /* Models */,
 				8422D1811CD7EEAF00E36251 /* API */,
 				846E2CC61CD700BA00F293D2 /* IntroVCs */,
@@ -122,8 +176,6 @@
 				846E2C9C1CD6A3E500F293D2 /* AppDelegate.swift */,
 				846E2CBC1CD6FA4B00F293D2 /* MenuTableViewController.swift */,
 				8422D17F1CD7D1E400E36251 /* CreateGroupTableViewController.swift */,
-				846E2CA01CD6A3E500F293D2 /* Main.storyboard */,
-				846E2CC71CD7013600F293D2 /* MainApp.storyboard */,
 				846E2CA61CD6A3E500F293D2 /* Assets.xcassets */,
 				846E2CA81CD6A3E500F293D2 /* LaunchScreen.storyboard */,
 				846E2CAB1CD6A3E500F293D2 /* Info.plist */,
@@ -135,9 +187,9 @@
 		846E2CB11CD6B36300F293D2 /* TabBarVCs */ = {
 			isa = PBXGroup;
 			children = (
-				846E2CB81CD6F93D00F293D2 /* GroupTableViewController.swift */,
-				846E2CBA1CD6F94B00F293D2 /* PeopleTableViewController.swift */,
-				846E2CC21CD6FBE000F293D2 /* ProfileTableViewController.swift */,
+				845535861CDB08A70027226A /* Group */,
+				8455358B1CDB118A0027226A /* People */,
+				8455358C1CDB11980027226A /* Profile */,
 			);
 			name = TabBarVCs;
 			sourceTree = "<group>";
@@ -273,15 +325,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845535881CDB08CD0027226A /* GroupViewController.swift in Sources */,
 				8422D1881CD7FFAF00E36251 /* Group.swift in Sources */,
 				846E2CC31CD6FBE000F293D2 /* ProfileTableViewController.swift in Sources */,
+				845535921CDC28970027226A /* CreateNewGroupViewController.swift in Sources */,
 				8422D1831CD7EEBF00E36251 /* FirebaseAPI.swift in Sources */,
 				846E2CBD1CD6FA4B00F293D2 /* MenuTableViewController.swift in Sources */,
+				8455358A1CDB0C600027226A /* ChatMessagingViewController.swift in Sources */,
 				846E2CB91CD6F93D00F293D2 /* GroupTableViewController.swift in Sources */,
 				846E2CA51CD6A3E500F293D2 /* Esusu.xcdatamodeld in Sources */,
 				846E2CC51CD700A900F293D2 /* CodeViewController.swift in Sources */,
 				846E2CBB1CD6F94B00F293D2 /* PeopleTableViewController.swift in Sources */,
 				846E2C9D1CD6A3E500F293D2 /* AppDelegate.swift in Sources */,
+				8455359A1CDC299C0027226A /* PaymentScheduleTableViewController.swift in Sources */,
 				8422D1861CD7FF8300E36251 /* User.swift in Sources */,
 				8422D1801CD7D1E400E36251 /* CreateGroupTableViewController.swift in Sources */,
 			);

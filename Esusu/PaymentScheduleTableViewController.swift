@@ -1,15 +1,18 @@
 //
-//  PeopleTableViewController.swift
+//  PaymentScheduleTableViewController.swift
 //  Esusu
 //
-//  Created by William Gu on 5/1/16.
+//  Created by William Gu on 5/5/16.
 //  Copyright © 2016 Gu Studios. All rights reserved.
 //
 
 import UIKit
 
-class PeopleTableViewController: UITableViewController {
+class PaymentScheduleTableViewController: UITableViewController {
 
+    
+    var delegate: CreateNewGroupViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,10 +21,6 @@ class PeopleTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,20 +37,41 @@ class PeopleTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1;
+        return 3;
+    }
+    
+    var selectedRow = -1;
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.accessoryType = UITableViewCellAccessoryType.Checkmark;
+        
+        self.selectedRow = indexPath.row;
+        
     }
 
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath);
+        cell?.accessoryType = UITableViewCellAccessoryType.None;
+    }
     
+    @IBAction func savePaymentSchedule(sender: UIButton) {
+        
+      
+        delegate.setScheduleFrom(self.selectedRow);
+        
+        self.navigationController?.popViewControllerAnimated(true);
+    }
+    
+    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("peopleCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = "Test user!"
 
         return cell
     }
-    
-
+    */
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

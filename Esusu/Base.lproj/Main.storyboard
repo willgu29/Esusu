@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Uk4-k6-Kv3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Uk4-k6-Kv3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -33,19 +33,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EO-oR-Qo6">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EO-oR-Qo6">
                                 <rect key="frame" x="107" y="518" width="107" height="30"/>
                                 <state key="normal" title="Create Account"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZn-IL-EBU">
-                                <rect key="frame" x="114" y="480" width="93" height="30"/>
-                                <state key="normal" title="Login with FB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZn-IL-EBU">
+                                <rect key="frame" x="141" y="480" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
                                 <connections>
                                     <segue destination="k3f-zC-ZLQ" kind="show" id="17A-GQ-aEb"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="8EO-oR-Qo6" secondAttribute="bottom" constant="20" symbolic="YES" id="2Og-kg-T6z"/>
+                            <constraint firstItem="OZn-IL-EBU" firstAttribute="centerX" secondItem="bly-6o-cVV" secondAttribute="centerX" id="ByX-5X-uzm"/>
+                            <constraint firstItem="OZn-IL-EBU" firstAttribute="centerX" secondItem="8EO-oR-Qo6" secondAttribute="centerX" id="e2e-6X-0l4"/>
+                            <constraint firstItem="8EO-oR-Qo6" firstAttribute="top" secondItem="OZn-IL-EBU" secondAttribute="bottom" constant="8" symbolic="YES" id="kYd-QO-nVL"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Exc-tq-Jm5"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -66,19 +72,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First time user? Pick code. Otherwise, enter." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqS-I0-2CS">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RcV-5f-uIi">
+                                <rect key="frame" x="59" y="225" width="202" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First time user? Pick code. Otherwise, enter." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqS-I0-2CS">
                                 <rect key="frame" x="59" y="263" width="202" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RcV-5f-uIi">
-                                <rect key="frame" x="89" y="176" width="142" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RcV-5f-uIi" firstAttribute="trailing" secondItem="tqS-I0-2CS" secondAttribute="trailing" id="3Ur-SE-gdF"/>
+                            <constraint firstItem="RcV-5f-uIi" firstAttribute="top" secondItem="QCc-Lh-OFK" secondAttribute="bottom" constant="161" id="93P-rB-4c8"/>
+                            <constraint firstItem="tqS-I0-2CS" firstAttribute="centerY" secondItem="PuM-D6-FxZ" secondAttribute="centerY" id="MTf-UA-1N8"/>
+                            <constraint firstItem="RcV-5f-uIi" firstAttribute="centerX" secondItem="PuM-D6-FxZ" secondAttribute="centerX" id="Vqs-0Y-8XO"/>
+                            <constraint firstItem="RcV-5f-uIi" firstAttribute="leading" secondItem="tqS-I0-2CS" secondAttribute="leading" id="bLP-sh-csc"/>
+                            <constraint firstItem="tqS-I0-2CS" firstAttribute="top" secondItem="RcV-5f-uIi" secondAttribute="bottom" constant="8" symbolic="YES" id="h7s-1j-37w"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Enter Code" id="jwE-aZ-khc">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Ybu-lk-bU6">

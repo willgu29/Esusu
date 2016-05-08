@@ -41,15 +41,17 @@ class GroupTableViewController: UITableViewController {
         return 1;
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("groupsCell", forIndexPath: indexPath)
+        
+        
         // Configure the cell...
+        cell.textLabel?.text = "Test group!"
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
