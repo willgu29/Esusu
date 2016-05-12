@@ -8,18 +8,26 @@
 
 import UIKit
 import Firebase
+
+protocol FirebaseAPIDelegate {
+    func loginError(error: NSError)
+    func loginSuccess(authData: AnyObject)
+}
+
+
 class FirebaseAPI: NSObject {
 
     
     static let sharedInstance = FirebaseAPI()
-
+    var delegate: FirebaseAPIDelegate?
+    var currentSessionUID: String?
     
     //required to add to end of phone number
     let EMAIL_DOMAIN = "@esusu.com";
     
-    let rootRef = Firebase(url:"https://glowing-fire-3895.firebaseio.com/")
-    let userRef = Firebase(url:"https://glowing-fire-3895.firebaseio.com/users/")
-    let groupRef = Firebase(url:"https://glowing-fire-3895.firebaseio.com/groups/")
+    let rootRef = Firebase(url:"https://flickering-torch-7464.firebaseio.com/")
+    let userRef = Firebase(url:"https://flickering-torch-7464.firebaseio.com/users/")
+    let groupRef = Firebase(url:"https://flickering-torch-7464.firebaseio.com/groups/")
     
     //MARK: Validation
     
@@ -38,21 +46,31 @@ class FirebaseAPI: NSObject {
         })
     }
     
-    func createUser(phoneNumber: String, password: String) {
+    func createUser(phoneNumber: String, password: String, fullName: String) {
+        
+        let userData = ["fullName": fullName,
+                        "phoneNumber": phoneNumber,
+                        "verified": false];
         
         rootRef.createUser(username(phoneNumber), password: password,
                            withValueCompletionBlock: { error, result in
                             if error != nil {
+                                //TODO: Warn about duplicate number creation
                                 //Error creating account
+                                print("Error: \(error)");
                             } else {
                                 let uid = result["uid"] as? String
+                                self.currentSessionUID = uid;
                                 print("Successfully created user account with uid: \(uid)")
+                                
+                                self.updateUser(uid!, user: userData);
                             }
         })
     }
     
-    func updateUser() {
-        
+    func updateUser(userID: String, user: NSDictionary) {
+        let thisUserRef = userRef.childByAppendingPath(userID);
+        thisUserRef.updateChildValues(user as [NSObject : AnyObject]);
     }
     
     func deleteUser(phoneNumber: String, password: String) {
@@ -72,10 +90,27 @@ class FirebaseAPI: NSObject {
                             
                             if error != nil {
                                 //Error logging in
+                                self.delegate?.loginError(error);
                             } else {
                                 //logged in!
+                                self.delegate?.loginSuccess(authData);
                             }
         })
+    }
+    
+    func logout() {
+        rootRef.unauth();
+    }
+    
+    func checkLoginStatus() -> Bool {
+        if rootRef.authData != nil {
+            // user authenticated
+            print(rootRef.authData) //Contains .uid
+            return true;
+        } else {
+            // No user is signed in
+            return false;
+        }
     }
     
     //MARK: Groups

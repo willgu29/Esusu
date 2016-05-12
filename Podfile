@@ -4,6 +4,7 @@
 use_frameworks!
 
 target 'Esusu' do
+pod 'SinchVerification-Swift'
 pod 'Firebase', '>= 2.5.1'
 pod 'Stripe'
 end
