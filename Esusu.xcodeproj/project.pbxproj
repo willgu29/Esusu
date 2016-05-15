@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8422D1801CD7D1E400E36251 /* CreateGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422D17F1CD7D1E400E36251 /* CreateGroupTableViewController.swift */; };
 		8422D1831CD7EEBF00E36251 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422D1821CD7EEBF00E36251 /* FirebaseAPI.swift */; };
 		8422D1861CD7FF8300E36251 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422D1851CD7FF8300E36251 /* User.swift */; };
 		8422D1881CD7FFAF00E36251 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422D1871CD7FFAF00E36251 /* Group.swift */; };
@@ -29,12 +28,12 @@
 		846E2CC31CD6FBE000F293D2 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E2CC21CD6FBE000F293D2 /* ProfileTableViewController.swift */; };
 		846E2CC51CD700A900F293D2 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E2CC41CD700A900F293D2 /* CodeViewController.swift */; };
 		846E2CC91CD7013600F293D2 /* MainApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846E2CC71CD7013600F293D2 /* MainApp.storyboard */; };
+		8473D9A61CE869B10091EBF1 /* ViewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473D9A51CE869B10091EBF1 /* ViewUserViewController.swift */; };
 		8E6C8AEF2CB8391C13FB8AC8 /* Pods_Esusu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6765C3C1251A38E40DD4303 /* Pods_Esusu.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		166CA41DA19423E6E0771C43 /* Pods-Esusu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esusu.release.xcconfig"; path = "Pods/Target Support Files/Pods-Esusu/Pods-Esusu.release.xcconfig"; sourceTree = "<group>"; };
-		8422D17F1CD7D1E400E36251 /* CreateGroupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupTableViewController.swift; sourceTree = "<group>"; };
 		8422D1821CD7EEBF00E36251 /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
 		8422D1851CD7FF8300E36251 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8422D1871CD7FFAF00E36251 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		846E2CC21CD6FBE000F293D2 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		846E2CC41CD700A900F293D2 /* CodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
 		846E2CC81CD7013600F293D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainApp.storyboard; sourceTree = "<group>"; };
+		8473D9A51CE869B10091EBF1 /* ViewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUserViewController.swift; sourceTree = "<group>"; };
 		A4D0B8EEE055F08E6DDDE66A /* Pods-Esusu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esusu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Esusu/Pods-Esusu.debug.xcconfig"; sourceTree = "<group>"; };
 		F6765C3C1251A38E40DD4303 /* Pods_Esusu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Esusu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -122,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				846E2CBA1CD6F94B00F293D2 /* PeopleTableViewController.swift */,
+				8473D9A51CE869B10091EBF1 /* ViewUserViewController.swift */,
 			);
 			name = People;
 			sourceTree = "<group>";
@@ -190,7 +191,6 @@
 				846E2CB11CD6B36300F293D2 /* TabBarVCs */,
 				846E2C9C1CD6A3E500F293D2 /* AppDelegate.swift */,
 				846E2CBC1CD6FA4B00F293D2 /* MenuTableViewController.swift */,
-				8422D17F1CD7D1E400E36251 /* CreateGroupTableViewController.swift */,
 				846E2CA61CD6A3E500F293D2 /* Assets.xcassets */,
 				846E2CA81CD6A3E500F293D2 /* LaunchScreen.storyboard */,
 				846E2CAB1CD6A3E500F293D2 /* Info.plist */,
@@ -347,6 +347,7 @@
 				8422D1881CD7FFAF00E36251 /* Group.swift in Sources */,
 				846E2CC31CD6FBE000F293D2 /* ProfileTableViewController.swift in Sources */,
 				845535921CDC28970027226A /* CreateNewGroupViewController.swift in Sources */,
+				8473D9A61CE869B10091EBF1 /* ViewUserViewController.swift in Sources */,
 				8455359C1CE2D04E0027226A /* CreateAccountViewController.swift in Sources */,
 				8422D1831CD7EEBF00E36251 /* FirebaseAPI.swift in Sources */,
 				846E2CBD1CD6FA4B00F293D2 /* MenuTableViewController.swift in Sources */,
@@ -359,7 +360,6 @@
 				846E2C9D1CD6A3E500F293D2 /* AppDelegate.swift in Sources */,
 				8455359A1CDC299C0027226A /* PaymentScheduleTableViewController.swift in Sources */,
 				8422D1861CD7FF8300E36251 /* User.swift in Sources */,
-				8422D1801CD7D1E400E36251 /* CreateGroupTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

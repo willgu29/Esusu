@@ -10,6 +10,9 @@ import UIKit
 
 class PeopleTableViewController: UITableViewController {
 
+    
+    var people = [];
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +21,20 @@ class PeopleTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
+        // Retrieve new users as they are added to our database
+        FirebaseAPI.sharedInstance.userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            // do some stuff once
+            print(snapshot);
+            let ids = snapshot.value as? NSDictionary
+            let newArray = NSMutableArray();
+            for userIds in ids! {
+                newArray.addObject(userIds.value);
+            }
+            self.people = newArray;
+            self.tableView.reloadData();
+        });
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -38,15 +55,22 @@ class PeopleTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1;
+        return people.count;
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("peopleCell", forIndexPath: indexPath)
 
+        
+        print("People: \(people)");
+
+        let userObject = self.people.objectAtIndex(indexPath.row);
+        let fullName = userObject.valueForKey("fullName");
+        let phoneNumber = userObject.valueForKey("phoneNumber");
+        
         // Configure the cell...
-        cell.textLabel?.text = "Test user!"
+        cell.textLabel?.text = fullName as! String;
 
         return cell
     }

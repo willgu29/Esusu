@@ -115,7 +115,7 @@ class FirebaseAPI: NSObject {
     
     //MARK: Groups
     
-    func createGroup() {
+    func createGroup(name: String, paymentSchedule: String, members: String) {
         
     }
     

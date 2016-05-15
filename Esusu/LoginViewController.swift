@@ -27,6 +27,7 @@ class LoginViewController: UIViewController, FirebaseAPIDelegate {
     
 
     @IBAction func login(sender:UIButton) {
+        FirebaseAPI.sharedInstance.delegate = self;
         FirebaseAPI.sharedInstance.login(phoneNumber.text!, password: password.text!);
         //Will go to delegate methods
     }
@@ -38,7 +39,7 @@ class LoginViewController: UIViewController, FirebaseAPIDelegate {
     }
     
     func loginError(error: NSError) {
-        
+        print(error);
     }
     
     
