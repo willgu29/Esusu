@@ -115,8 +115,18 @@ class FirebaseAPI: NSObject {
     
     //MARK: Groups
     
-    func createGroup(name: String, paymentSchedule: String, members: String) {
+    func createGroup(name: String, paymentSchedule: String, members: NSMutableArray) {
+        let uuid = NSUUID().UUIDString
+        let dateCreated = NSDate().timeIntervalSince1970;
+        let group = ["name": name,
+                     "paymentSchedule":paymentSchedule,
+                     "members":members,
+                     "admin": self.rootRef.authData.uid,
+                     "createdDate": dateCreated];
         
+        let thisGroupRef = groupRef.childByAppendingPath(uuid)
+        thisGroupRef.setValue(group);
+
     }
     
     func updateGroup() {

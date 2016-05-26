@@ -37,6 +37,24 @@ class MenuTableViewController: UITableViewController {
         return 7;
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if (indexPath.row == 0) {
+            //Complete Setup
+        } else if (indexPath.row == 1) {
+            //Transfer to Bank
+        } else if (indexPath.row == 2) {
+            //Transfer to Esusu
+        } else if (indexPath.row == 3) {
+            //Edit Profile
+        } else if (indexPath.row == 4) {
+            //Account Statements
+        } else if (indexPath.row == 5) {
+            //Contact Help
+        } else if (indexPath.row == 6) {
+            //Logout
+        }
+    }
+    
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)

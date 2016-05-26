@@ -23,11 +23,18 @@ class PeopleTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         
+      
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         // Retrieve new users as they are added to our database
         FirebaseAPI.sharedInstance.userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             // do some stuff once
             print(snapshot);
             let ids = snapshot.value as? NSDictionary
+            if (ids == nil) {
+                return;
+            }
             let newArray = NSMutableArray();
             for userIds in ids! {
                 newArray.addObject(userIds.value);
@@ -35,10 +42,6 @@ class PeopleTableViewController: UITableViewController {
             self.people = newArray;
             self.tableView.reloadData();
         });
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        
     }
 
     override func didReceiveMemoryWarning() {

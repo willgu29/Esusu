@@ -19,6 +19,16 @@ class LoginViewController: UIViewController, FirebaseAPIDelegate {
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        if (FirebaseAPI.sharedInstance.rootRef.authData != nil) {
+            //user logged in
+            self.performSegueWithIdentifier("toMainApp", sender: self);
+        } else {
+            //not logged in
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

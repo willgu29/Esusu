@@ -1,73 +1,58 @@
 //
-//  PaymentScheduleTableViewController.swift
+//  AddMembersTableViewController.swift
 //  Esusu
 //
-//  Created by William Gu on 5/5/16.
+//  Created by William Gu on 5/25/16.
 //  Copyright © 2016 Gu Studios. All rights reserved.
 //
 
 import UIKit
 
-class PaymentScheduleTableViewController: UITableViewController {
+class AddMembersTableViewController: PeopleTableViewController {
 
-    
     var delegate: CreateNewGroupViewController!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
+    var selectedPeople: NSMutableArray = [];
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1;
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 3;
-    }
-    
-    var selectedRow = -1;
+  
+    //TODO: Select yourself: or don't show
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        cell?.accessoryType = UITableViewCellAccessoryType.Checkmark;
         
-        self.selectedRow = indexPath.row;
-        delegate.setScheduleFrom(self.selectedRow);
+        let cell = tableView.cellForRowAtIndexPath(indexPath);
+        let user = self.people.objectAtIndex(indexPath.row);
+
         
+        if (cell?.accessoryType == UITableViewCellAccessoryType.Checkmark) {
+            //Already added
+            cell?.accessoryType = UITableViewCellAccessoryType.None;
+            selectedPeople.removeObject(user);
+        } else {
+            //Not yet added
+            cell?.accessoryType = UITableViewCellAccessoryType.Checkmark;
+            selectedPeople.addObject(user);
+        }
+        
+    }
+
+    @IBAction func addMembers(sender: UIButton) {
+        self.delegate.setMembersFrom(selectedPeople);
         self.navigationController?.popViewControllerAnimated(true);
+
+        
     }
-//
-//    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-//        let cell = tableView.cellForRowAtIndexPath(indexPath);
-//        cell?.accessoryType = UITableViewCellAccessoryType.None;
-//    }
-//    
-   
     
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
+    
+    
+    
+    
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

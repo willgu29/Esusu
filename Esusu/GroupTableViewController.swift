@@ -10,6 +10,10 @@ import UIKit
 
 class GroupTableViewController: UITableViewController {
 
+    
+    var groups = [];
+    var selectedGroup: AnyObject!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,12 +22,27 @@ class GroupTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+       
+        
     }
 
     override func viewWillAppear(animated: Bool) {
-        
+        FirebaseAPI.sharedInstance.groupRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            // do some stuff once
+            print(snapshot);
+            let ids = snapshot.value as? NSDictionary
+            if (ids == nil) {
+                return;
+            }
+            let newArray = NSMutableArray();
+            for groupIds in ids! {
+                newArray.addObject(groupIds.value);
+            }
+            self.groups = newArray;
+            self.tableView.reloadData();
+        });
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,7 +57,7 @@ class GroupTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1;
+        return groups.count;
     }
 
     
@@ -46,10 +65,18 @@ class GroupTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("groupsCell", forIndexPath: indexPath)
         
         
-        // Configure the cell...
-        cell.textLabel?.text = "Test group!"
+//        // Configure the cell...
+        let groupObject = self.groups.objectAtIndex(indexPath.row);
+        let groupName = groupObject.valueForKey("name") as! String;
+        
+        
+        cell.textLabel?.text = groupName;
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.selectedGroup = groups.indexOfObject(indexPath.row);
     }
     
 
@@ -88,14 +115,21 @@ class GroupTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if (segue.identifier == "toGroup") {
+            let groupViewVC = segue.destinationViewController as! GroupViewController
+            groupViewVC.groupName.text = selectedGroup.valueForKey("name") as! String;
+            
+        }
+        
     }
-    */
+    
 
 }

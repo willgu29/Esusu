@@ -15,9 +15,9 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var paymentSchedule: UITextField!
     @IBOutlet weak var addMembers: UITextField!
     
-    var name: String?
-    var schedule: String?
-    var members: [String]?
+//    var name: String = ""
+//    var schedule: String = ""
+    var members: NSMutableArray = [] //of UIDs prob
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,8 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func createGroup(sender: UIButton) {
         //TODO: Create that group via Firebase
+        FirebaseAPI.sharedInstance.createGroup(groupName.text!, paymentSchedule: paymentSchedule.text!, members: self.members)
+        
         
         self.navigationController?.popViewControllerAnimated(true);
         
@@ -60,6 +62,11 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
             paymentVC.delegate = self;
             self.navigationController?.pushViewController(paymentVC, animated: true);
             return false;
+        } else if (textField == addMembers) {
+            let addMembersVC = self.storyboard?.instantiateViewControllerWithIdentifier("AddMembersVC") as! AddMembersTableViewController
+            addMembersVC.delegate = self;
+            self.navigationController?.pushViewController(addMembersVC, animated: true);
+            return false;
         }
         
         return true;
@@ -73,6 +80,22 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
         } else {
             paymentSchedule.text = scheduleOptions[rowNumber];
         }
+    }
+    
+    internal func setMembersFrom(members: NSMutableArray) {
+        self.members = members;
+        addMembers.text = constructMemberString();
+    }
+    
+    func constructMemberString() -> String {
+        var memberNamesArray: [String] = [];
+        
+        for memberObject in self.members {
+            let name = memberObject.valueForKey("fullName") as! String;
+            memberNamesArray.append(name);
+        }
+        let string = memberNamesArray.joinWithSeparator(", ");
+        return string;
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

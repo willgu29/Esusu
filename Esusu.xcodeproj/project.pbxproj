@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84078A0C1CF6B30F005902AF /* AddMembersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84078A0B1CF6B30F005902AF /* AddMembersTableViewController.swift */; };
 		8422D1831CD7EEBF00E36251 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422D1821CD7EEBF00E36251 /* FirebaseAPI.swift */; };
 		8422D1861CD7FF8300E36251 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422D1851CD7FF8300E36251 /* User.swift */; };
 		8422D1881CD7FFAF00E36251 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422D1871CD7FFAF00E36251 /* Group.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		166CA41DA19423E6E0771C43 /* Pods-Esusu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esusu.release.xcconfig"; path = "Pods/Target Support Files/Pods-Esusu/Pods-Esusu.release.xcconfig"; sourceTree = "<group>"; };
+		84078A0B1CF6B30F005902AF /* AddMembersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMembersTableViewController.swift; sourceTree = "<group>"; };
 		8422D1821CD7EEBF00E36251 /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
 		8422D1851CD7FF8300E36251 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8422D1871CD7FFAF00E36251 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				845535911CDC28970027226A /* CreateNewGroupViewController.swift */,
 				845535991CDC299C0027226A /* PaymentScheduleTableViewController.swift */,
+				84078A0B1CF6B30F005902AF /* AddMembersTableViewController.swift */,
 			);
 			name = CreateGroupVC;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				TargetAttributes = {
 					846E2C981CD6A3E400F293D2 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = X8C323275L;
 					};
 				};
 			};
@@ -360,6 +364,7 @@
 				846E2C9D1CD6A3E500F293D2 /* AppDelegate.swift in Sources */,
 				8455359A1CDC299C0027226A /* PaymentScheduleTableViewController.swift in Sources */,
 				8422D1861CD7FF8300E36251 /* User.swift in Sources */,
+				84078A0C1CF6B30F005902AF /* AddMembersTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +486,7 @@
 			baseConfigurationReference = A4D0B8EEE055F08E6DDDE66A /* Pods-Esusu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Esusu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -494,6 +500,7 @@
 			baseConfigurationReference = 166CA41DA19423E6E0771C43 /* Pods-Esusu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Esusu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
