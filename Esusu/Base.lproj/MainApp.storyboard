@@ -118,7 +118,7 @@
                             <tableViewSection id="NGc-FJ-mFa">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Lor-iJ-pGZ">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lor-iJ-pGZ" id="kTd-Qh-NVe">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -134,7 +134,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="QqA-BY-WWz">
-                                        <rect key="frame" x="0.0" y="108" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="44" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QqA-BY-WWz" id="WVH-ra-mI2">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -150,7 +150,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cBB-Ld-fXN">
-                                        <rect key="frame" x="0.0" y="152" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="88" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cBB-Ld-fXN" id="nOz-vu-Cog">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -175,18 +175,14 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Profile" id="dvX-7x-9ZW">
-                        <barButtonItem key="rightBarButtonItem" title="Menu" id="es4-yM-GU1">
-                            <connections>
-                                <segue destination="ksN-0O-ti3" kind="show" id="oOn-7I-gPn"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Menu" id="es4-yM-GU1"/>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkF-WA-eiB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2401" y="581"/>
+            <point key="canvasLocation" x="2191" y="1261"/>
         </scene>
         <!--Groups-->
         <scene sceneID="IaB-cP-siM">
@@ -397,7 +393,7 @@
             </objects>
             <point key="canvasLocation" x="3058" y="-390"/>
         </scene>
-        <!--Menu Table View Controller-->
+        <!--Settings-->
         <scene sceneID="Zw6-S9-Mmi">
             <objects>
                 <tableViewController id="ksN-0O-ti3" customClass="MenuTableViewController" customModule="Esusu" customModuleProvider="target" sceneMemberID="viewController">
@@ -534,11 +530,12 @@
                             <outlet property="delegate" destination="ksN-0O-ti3" id="YAM-mv-bXA"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="ZSO-GU-IDC"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zei-gv-vnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2913" y="983"/>
+            <point key="canvasLocation" x="2405" y="581"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="kQo-aN-ntf">
@@ -1013,11 +1010,11 @@
             </objects>
             <point key="canvasLocation" x="1983" y="-83"/>
         </scene>
-        <!--Profile-->
+        <!--Settings-->
         <scene sceneID="6Is-1g-TBF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="egA-pl-qFy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="EKD-LV-Iz9"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="EKD-LV-Iz9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Nq-M5-FWv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1025,7 +1022,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="o6F-aF-dl7" kind="relationship" relationship="rootViewController" id="7SM-FP-CBh"/>
+                        <segue destination="ksN-0O-ti3" kind="relationship" relationship="rootViewController" id="X1s-XL-eCD"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sto-ca-Apl" userLabel="First Responder" sceneMemberID="firstResponder"/>
