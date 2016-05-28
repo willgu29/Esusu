@@ -18,6 +18,7 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
 //    var name: String = ""
 //    var schedule: String = ""
     var members: NSMutableArray = [] //of UIDs prob
+    var userIds: NSMutableArray = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,7 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func createGroup(sender: UIButton) {
         //TODO: Create that group via Firebase
-        FirebaseAPI.sharedInstance.createGroup(groupName.text!, paymentSchedule: paymentSchedule.text!, members: self.members)
+        FirebaseAPI.sharedInstance.createGroup(groupName.text!, paymentSchedule: paymentSchedule.text!, members: self.members, ids: self.userIds);
         
         
         self.navigationController?.popViewControllerAnimated(true);
@@ -82,8 +83,9 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    internal func setMembersFrom(members: NSMutableArray) {
+    internal func setMembersFrom(members: NSMutableArray, ids: NSMutableArray) {
         self.members = members;
+        self.userIds = ids;
         addMembers.text = constructMemberString();
     }
     

@@ -115,17 +115,24 @@ class FirebaseAPI: NSObject {
     
     //MARK: Groups
     
-    func createGroup(name: String, paymentSchedule: String, members: NSMutableArray) {
+    func createGroup(name: String, paymentSchedule: String, members: NSMutableArray, ids: NSMutableArray) {
         let uuid = NSUUID().UUIDString
         let dateCreated = NSDate().timeIntervalSince1970;
+        
+        let currentUserId = self.rootRef.authData.uid
+        
         let group = ["name": name,
                      "paymentSchedule":paymentSchedule,
                      "members":members,
-                     "admin": self.rootRef.authData.uid,
+                     "ids": ids,
+                     "admin": currentUserId,
                      "createdDate": dateCreated];
         
         let thisGroupRef = groupRef.childByAppendingPath(uuid)
         thisGroupRef.setValue(group);
+
+        //TODO: Save newly created groups to user ids
+        //FOR all userids add them to groups
 
     }
     

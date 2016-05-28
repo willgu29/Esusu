@@ -8,17 +8,20 @@
 
 import UIKit
 
-class GroupViewController: UIViewController {
+class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var groupName: UILabel!
-    @IBOutlet weak var paymentNumber: UILabel!
-    @IBOutlet weak var payeeName: UILabel!
     @IBOutlet weak var payAmount: UILabel!
+//    @IBOutlet weak var paymentSchedule: UITableView!
+    
+    var name: String!
+    var usersPaid: [AnyObject]?
+    var usersInGroup: NSArray!
     
     
-    var usersPaid: [User]?
-    var usersInGroup: [User]?
-    
+    func setup() {
+        self.groupName.text = self.name;
+    }
     
     
     override func viewDidLoad() {
@@ -26,11 +29,46 @@ class GroupViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        setup()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Table view data source
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1;
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return usersInGroup.count;
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("usersInGroup", forIndexPath: indexPath)
+        
+        
+        // Configure the cell...
+        let groupObject = self.usersInGroup.objectAtIndex(indexPath.row);
+        let groupName = groupObject.valueForKey("fullName") as! String;
+        let dateToBePaid = "TODO";
+        
+        cell.textLabel?.text = groupName;
+        cell.detailTextLabel?.text = dateToBePaid;
+        
+        return cell
+    }
+    
+
+    
     
 
     /*

@@ -13,7 +13,7 @@ class AddMembersTableViewController: PeopleTableViewController {
     var delegate: CreateNewGroupViewController!
 
     var selectedPeople: NSMutableArray = [];
-
+    var selectedIds: NSMutableArray = [];
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -25,23 +25,25 @@ class AddMembersTableViewController: PeopleTableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let cell = tableView.cellForRowAtIndexPath(indexPath);
-        let user = self.people.objectAtIndex(indexPath.row);
-
+        let user = self.users.objectAtIndex(indexPath.row);
+        let userId = self.userIds.objectAtIndex(indexPath.row);
         
         if (cell?.accessoryType == UITableViewCellAccessoryType.Checkmark) {
             //Already added
             cell?.accessoryType = UITableViewCellAccessoryType.None;
             selectedPeople.removeObject(user);
+            selectedIds.removeObject(userId);
         } else {
             //Not yet added
             cell?.accessoryType = UITableViewCellAccessoryType.Checkmark;
             selectedPeople.addObject(user);
+            selectedIds.addObject(userId);
         }
         
     }
 
     @IBAction func addMembers(sender: UIButton) {
-        self.delegate.setMembersFrom(selectedPeople);
+        self.delegate.setMembersFrom(selectedPeople, ids: selectedIds);
         self.navigationController?.popViewControllerAnimated(true);
 
         

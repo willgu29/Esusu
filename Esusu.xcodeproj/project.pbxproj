@@ -29,7 +29,7 @@
 		846E2CC31CD6FBE000F293D2 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E2CC21CD6FBE000F293D2 /* ProfileTableViewController.swift */; };
 		846E2CC51CD700A900F293D2 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E2CC41CD700A900F293D2 /* CodeViewController.swift */; };
 		846E2CC91CD7013600F293D2 /* MainApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846E2CC71CD7013600F293D2 /* MainApp.storyboard */; };
-		8473D9A61CE869B10091EBF1 /* ViewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473D9A51CE869B10091EBF1 /* ViewUserViewController.swift */; };
+		84D2C7971CFA545B0080BDC1 /* ViewUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D2C7961CFA545B0080BDC1 /* ViewUserTableViewController.swift */; };
 		8E6C8AEF2CB8391C13FB8AC8 /* Pods_Esusu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6765C3C1251A38E40DD4303 /* Pods_Esusu.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +59,7 @@
 		846E2CC21CD6FBE000F293D2 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		846E2CC41CD700A900F293D2 /* CodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
 		846E2CC81CD7013600F293D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainApp.storyboard; sourceTree = "<group>"; };
-		8473D9A51CE869B10091EBF1 /* ViewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUserViewController.swift; sourceTree = "<group>"; };
+		84D2C7961CFA545B0080BDC1 /* ViewUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUserTableViewController.swift; sourceTree = "<group>"; };
 		A4D0B8EEE055F08E6DDDE66A /* Pods-Esusu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esusu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Esusu/Pods-Esusu.debug.xcconfig"; sourceTree = "<group>"; };
 		F6765C3C1251A38E40DD4303 /* Pods_Esusu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Esusu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -124,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				846E2CBA1CD6F94B00F293D2 /* PeopleTableViewController.swift */,
-				8473D9A51CE869B10091EBF1 /* ViewUserViewController.swift */,
+				84D2C7961CFA545B0080BDC1 /* ViewUserTableViewController.swift */,
 			);
 			name = People;
 			sourceTree = "<group>";
@@ -349,9 +349,9 @@
 				845535A11CE4134F0027226A /* LoginViewController.swift in Sources */,
 				845535881CDB08CD0027226A /* GroupViewController.swift in Sources */,
 				8422D1881CD7FFAF00E36251 /* Group.swift in Sources */,
+				84D2C7971CFA545B0080BDC1 /* ViewUserTableViewController.swift in Sources */,
 				846E2CC31CD6FBE000F293D2 /* ProfileTableViewController.swift in Sources */,
 				845535921CDC28970027226A /* CreateNewGroupViewController.swift in Sources */,
-				8473D9A61CE869B10091EBF1 /* ViewUserViewController.swift in Sources */,
 				8455359C1CE2D04E0027226A /* CreateAccountViewController.swift in Sources */,
 				8422D1831CD7EEBF00E36251 /* FirebaseAPI.swift in Sources */,
 				846E2CBD1CD6FA4B00F293D2 /* MenuTableViewController.swift in Sources */,
