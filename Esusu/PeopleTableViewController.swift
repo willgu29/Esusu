@@ -30,7 +30,7 @@ class PeopleTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         // Retrieve new users as they are added to our database
-        FirebaseAPI.sharedInstance.userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        FirebaseAPI.sharedInstance.rootRef.child("users").observeSingleEventOfType(.Value, withBlock: { snapshot in
             // do some stuff once
             print(snapshot);
             let ids = snapshot.value as? NSDictionary

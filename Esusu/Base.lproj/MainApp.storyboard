@@ -220,13 +220,54 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <segue destination="JvZ-3W-vPY" kind="show" identifier="toGroup" id="hBi-Nw-VN4"/>
+                        <segue destination="dKd-8W-moD" kind="show" identifier="toJoinGroup" id="3f6-Jq-ZbE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fRH-WY-TPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2375" y="-91"/>
+            <point key="canvasLocation" x="2361" y="-83"/>
         </scene>
-        <!--Title-->
+        <!--Join Group-->
+        <scene sceneID="L8b-Ox-Z09">
+            <objects>
+                <viewController id="dKd-8W-moD" customClass="JoinGroupViewController" customModule="Esusu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VMV-sL-Tz4"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mf8-OO-g3O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vXU-pg-XAO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're not a part of this group!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8H-vS-Gjx">
+                                <rect key="frame" x="44" y="273" width="233" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feature to join coming soon." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijc-5g-dE6">
+                                <rect key="frame" x="52" y="302" width="217" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c8H-vS-Gjx" firstAttribute="centerX" secondItem="vXU-pg-XAO" secondAttribute="centerX" id="565-CL-5Cg"/>
+                            <constraint firstItem="c8H-vS-Gjx" firstAttribute="centerY" secondItem="vXU-pg-XAO" secondAttribute="centerY" id="FbS-FY-SAY"/>
+                            <constraint firstItem="c8H-vS-Gjx" firstAttribute="centerX" secondItem="ijc-5g-dE6" secondAttribute="centerX" id="PY0-tx-coc"/>
+                            <constraint firstItem="ijc-5g-dE6" firstAttribute="top" secondItem="c8H-vS-Gjx" secondAttribute="bottom" constant="8" symbolic="YES" id="ehE-dt-chp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Join Group" id="ez6-gf-MdA"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k9n-zF-udc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2361" y="-743"/>
+        </scene>
+        <!--Esusu-->
         <scene sceneID="myv-cZ-UxC">
             <objects>
                 <viewController id="JvZ-3W-vPY" customClass="GroupViewController" customModule="Esusu" customModuleProvider="target" sceneMemberID="viewController">
@@ -307,7 +348,7 @@
                             <constraint firstItem="eSM-39-jmc" firstAttribute="trailing" secondItem="r6w-Up-wPE" secondAttribute="trailing" id="m68-Eb-71W"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="a9k-pG-Qn1">
+                    <navigationItem key="navigationItem" title="Esusu" id="a9k-pG-Qn1">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="BFR-Fk-H8J">
                             <connections>
                                 <segue destination="m1a-TK-joH" kind="show" id="Rg4-wl-gl0"/>
@@ -457,6 +498,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="t2Z-za-fKI" kind="show" id="jsB-IZ-teY"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Dbs-tj-0hF">
                                         <rect key="frame" x="0.0" y="196" width="320" height="44"/>
@@ -536,6 +580,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zei-gv-vnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2405" y="581"/>
+        </scene>
+        <!--Payment View Controller-->
+        <scene sceneID="BOZ-DF-g6T">
+            <objects>
+                <viewController id="t2Z-za-fKI" customClass="PaymentViewController" customModule="Esusu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yX4-Sa-Ztc"/>
+                        <viewControllerLayoutGuide type="bottom" id="4o5-Cf-ltC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lGX-I9-l0F">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRf-ib-U7a">
+                                <rect key="frame" x="119" y="481" width="83" height="30"/>
+                                <state key="normal" title="Save Button"/>
+                                <connections>
+                                    <action selector="save:" destination="t2Z-za-fKI" eventType="touchUpInside" id="aB3-YK-SWx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="saveButton" destination="kRf-ib-U7a" id="iVb-Ps-b97"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LUo-j4-ld1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3083" y="875"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="kQo-aN-ntf">
@@ -897,8 +972,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send SMS here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3Q-hW-54b">
-                                <rect key="frame" x="101" y="273" width="118" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3Q-hW-54b">
+                                <rect key="frame" x="107" y="273" width="106" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -906,8 +981,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="A3Q-hW-54b" firstAttribute="centerY" secondItem="EOr-gq-0Mc" secondAttribute="centerY" id="60q-vn-SHV"/>
-                            <constraint firstItem="A3Q-hW-54b" firstAttribute="centerX" secondItem="EOr-gq-0Mc" secondAttribute="centerX" id="MZ8-bT-pAe"/>
+                            <constraint firstItem="A3Q-hW-54b" firstAttribute="centerY" secondItem="EOr-gq-0Mc" secondAttribute="centerY" id="8lN-X6-BDt"/>
+                            <constraint firstItem="A3Q-hW-54b" firstAttribute="centerX" secondItem="EOr-gq-0Mc" secondAttribute="centerX" id="fWX-co-ZjG"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -935,10 +1010,10 @@
             </objects>
             <point key="canvasLocation" x="3833" y="534"/>
         </scene>
-        <!--View Controller-->
+        <!--Bank Link View Controller-->
         <scene sceneID="4wL-1M-ch0">
             <objects>
-                <viewController id="y9R-0O-oOS" sceneMemberID="viewController">
+                <viewController id="y9R-0O-oOS" customClass="BankLinkViewController" customModule="Esusu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lc1-xW-Zqf"/>
                         <viewControllerLayoutGuide type="bottom" id="eHr-OT-f4l"/>
@@ -954,8 +1029,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7D-s3-SIc">
-                                <rect key="frame" x="142" y="182" width="37" height="30"/>
-                                <state key="normal" title="Done"/>
+                                <rect key="frame" x="127" y="182" width="66" height="30"/>
+                                <state key="normal" title="Add Bank"/>
+                                <connections>
+                                    <action selector="plaidConnectButton:" destination="y9R-0O-oOS" eventType="touchUpInside" id="xd1-d3-2jp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

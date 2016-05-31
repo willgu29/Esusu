@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
 
 class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -21,6 +23,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func setup() {
         self.groupName.text = self.name;
+        
     }
     
     
@@ -57,11 +60,11 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         
         // Configure the cell...
-        let groupObject = self.usersInGroup.objectAtIndex(indexPath.row);
-        let groupName = groupObject.valueForKey("fullName") as! String;
+        let userObject = self.usersInGroup.objectAtIndex(indexPath.row);
+        let username = userObject.valueForKey("fullName") as! String;
         let dateToBePaid = "TODO";
         
-        cell.textLabel?.text = groupName;
+        cell.textLabel?.text = username;
         cell.detailTextLabel?.text = dateToBePaid;
         
         return cell

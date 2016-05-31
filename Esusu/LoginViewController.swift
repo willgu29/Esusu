@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class LoginViewController: UIViewController, FirebaseAPIDelegate {
 
@@ -22,11 +24,13 @@ class LoginViewController: UIViewController, FirebaseAPIDelegate {
     
     
     override func viewDidAppear(animated: Bool) {
-        if (FirebaseAPI.sharedInstance.rootRef.authData != nil) {
-            //user logged in
+        if let user = FIRAuth.auth()?.currentUser {
+            // User is signed in.
+            print(user);
             self.performSegueWithIdentifier("toMainApp", sender: self);
+
         } else {
-            //not logged in
+            // No user is signed in.
         }
     }
 
@@ -46,6 +50,9 @@ class LoginViewController: UIViewController, FirebaseAPIDelegate {
     
     func loginSuccess(authData: AnyObject) {
         self.performSegueWithIdentifier("toMainApp", sender: self);
+        
+        self.phoneNumber.text = "";
+        self.password.text = "";
     }
     
     func loginError(error: NSError) {

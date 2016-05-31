@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 import Stripe
+import plaid_ios_link
+import Firebase
 
 
 @UIApplicationMain
@@ -19,6 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //TODO: Swap key with live production key when in production
+        FIRApp.configure()
+        Stripe.setDefaultPublishableKey("pk_test_rkD1q3uyt8GWWXRJ978Dmac5")
+        Plaid.sharedInstance().setPublicKey("8121e0f7adedeb7015f1d88b6fdc93")
 
         
         return true

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class GroupTableViewController: UITableViewController {
 
@@ -27,7 +29,9 @@ class GroupTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
-        FirebaseAPI.sharedInstance.groupRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        let user = FIRAuth.auth()?.currentUser;
+        
+        FirebaseAPI.sharedInstance.rootRef.child("groups").observeSingleEventOfType(.Value, withBlock: { snapshot in
             // do some stuff once
             print(snapshot);
             let ids = snapshot.value as? NSDictionary
@@ -81,7 +85,24 @@ class GroupTableViewController: UITableViewController {
         print(indexPath);
         
         self.selectedGroup = self.groups.objectAtIndex(indexPath.row);
-        self.performSegueWithIdentifier("toGroup", sender: self);
+        
+        
+        let currentUser = FIRAuth.auth()?.currentUser;
+        let ids =  self.selectedGroup.valueForKey("ids") as! NSArray
+        var userInGroup = false;
+        
+        for id in ids {
+            if (currentUser?.uid == (id as! String)) {
+                userInGroup = true;
+            }
+        }
+        
+        if (userInGroup) {
+            self.performSegueWithIdentifier("toGroup", sender: self);
+        } else {
+            self.performSegueWithIdentifier("toJoinGroup", sender: self);
+        }
+        
     }
     
 
@@ -131,8 +152,9 @@ class GroupTableViewController: UITableViewController {
         if (segue.identifier == "toGroup") {
             let groupViewVC = segue.destinationViewController as! GroupViewController
             groupViewVC.name = self.selectedGroup.valueForKey("name") as! String;
-            groupViewVC.usersInGroup  = self.selectedGroup.valueForKey("members") as! NSArray
+            groupViewVC.usersInGroup = self.selectedGroup.valueForKey("members") as! NSArray
 
+        } else if (segue.identifier == "toJoinGroup") {
             
         }
         

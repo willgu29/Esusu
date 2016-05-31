@@ -52,6 +52,8 @@ class MenuTableViewController: UITableViewController {
             //Contact Help
         } else if (indexPath.row == 6) {
             //Logout
+            FirebaseAPI.sharedInstance.logout();
+            self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
         }
     }
     

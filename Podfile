@@ -1,10 +1,15 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '8.0'
+#platform :ios, '8.0'
 # Uncomment this line if you're using Swift
 use_frameworks!
 
 target 'Esusu' do
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
+pod 'Firebase/Messaging'
+pod 'plaid-ios-link'
 pod 'SinchVerification-Swift'
-pod 'Firebase', '>= 2.5.1'
+pod 'Firebase'
+pod 'Stripe'
 end
 
