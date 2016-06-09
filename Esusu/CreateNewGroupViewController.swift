@@ -38,7 +38,10 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func createGroup(sender: UIButton) {
-        //TODO: Create that group via Firebase, saving the member objects and userIds involved
+        
+        //TODO: Add error handling, make sure all fields are filled.
+        
+        //Create that group via Firebase, saving the member objects and userIds involved
         FirebaseAPI.sharedInstance.createGroup(groupName.text!, paymentSchedule: paymentSchedule.text!, members: self.members, ids: self.userIds);
         
         

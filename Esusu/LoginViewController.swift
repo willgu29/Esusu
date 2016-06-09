@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 import FBSDKLoginKit
 
-class LoginViewController: UIViewController, FirebaseAPIDelegate, FBSDKLoginButtonDelegate {
+class LoginViewController: UIViewController, FirebaseAPIDelegate{ // uncomment for FB FBSDKLoginButtonDelegate 
 
     
     @IBOutlet weak var phoneNumber: UITextField!
