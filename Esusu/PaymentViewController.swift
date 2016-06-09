@@ -9,10 +9,11 @@
 import UIKit
 import Stripe
 
-class PaymentViewController: UIViewController, STPPaymentCardTextFieldDelegate {
+class PaymentViewController: UIViewController, STPPaymentCardTextFieldDelegate, UITextFieldDelegate {
 
     let paymentTextField = STPPaymentCardTextField()
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var emailField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,10 @@ class PaymentViewController: UIViewController, STPPaymentCardTextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true);
     }
     
     func paymentCardTextFieldDidChange(textField: STPPaymentCardTextField) {
@@ -44,9 +49,8 @@ class PaymentViewController: UIViewController, STPPaymentCardTextFieldDelegate {
                 self.handleError(error)
             }
             else if let token = token {
-                self.createBackendChargeWithToken(token) { status in
-                    //
-                }
+            
+                StripeAPI.sharedInstance.createCustomer(token, email: self.emailField.text!);
             }
         }
     }
@@ -55,27 +59,7 @@ class PaymentViewController: UIViewController, STPPaymentCardTextFieldDelegate {
         print(error);
     }
     
-    func createBackendChargeWithToken(token: STPToken, completion: PKPaymentAuthorizationStatus -> ()) {
-        
-        print(token);
-        
-        let url = NSURL(string: "https://example.com/token")!
-        let request = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "POST"
-        let body = "stripeToken=(token.tokenId)"
-        request.HTTPBody = body.dataUsingEncoding(NSUTF8StringEncoding)
-        let configuration = NSURLSessionConfiguration.ephemeralSessionConfiguration()
-        let session = NSURLSession(configuration: configuration)
-        let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
-            if error != nil {
-                completion(PKPaymentAuthorizationStatus.Failure)
-            }
-            else {
-                completion(PKPaymentAuthorizationStatus.Success)
-            }
-        }
-        task.resume()
-    }
+ 
     
 
     /*

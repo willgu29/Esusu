@@ -9,17 +9,46 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FBSDKLoginKit
 
-class LoginViewController: UIViewController, FirebaseAPIDelegate {
+class LoginViewController: UIViewController, FirebaseAPIDelegate, FBSDKLoginButtonDelegate {
 
     
     @IBOutlet weak var phoneNumber: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        
+        //FB Login, disabled for now: need to save created account to Firebase /users endpoint (name, phone number, etc.)
+//        let loginButton = FBSDKLoginButton();
+//        loginButton.delegate = self;
+//        loginButton.center = self.view.center;
+//        self.view.addSubview(loginButton);
+    }
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError?) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+        // ...
+        let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+        FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+            // ...
+        }
+
+    }
+    func loginButtonDidLogOut(loginButton:FBSDKLoginButton){
+    
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true;
     }
     
     
@@ -44,6 +73,15 @@ class LoginViewController: UIViewController, FirebaseAPIDelegate {
         FirebaseAPI.sharedInstance.delegate = self;
         FirebaseAPI.sharedInstance.login(phoneNumber.text!, password: password.text!);
         //Will go to delegate methods
+    }
+    
+    @IBAction func findOutMore(sender: UIButton) {
+        UIApplication.sharedApplication().openURL(NSURL(string: "https://voice.adobe.com/a/5n0EP/")!)
+
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true);
     }
     
     // MARK: Delegate

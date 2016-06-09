@@ -34,23 +34,35 @@ class MenuTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 7;
+        return 9;
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.row == 0) {
             //Complete Setup
         } else if (indexPath.row == 1) {
-            //Transfer to Bank
+            //Add bank
         } else if (indexPath.row == 2) {
-            //Transfer to Esusu
+            //Add card
         } else if (indexPath.row == 3) {
-            //Edit Profile
+            //Edit Account
         } else if (indexPath.row == 4) {
-            //Account Statements
-        } else if (indexPath.row == 5) {
+            //TODO: Coming soon
             //Contact Help
+            segueToComingSoonViewController()
+        } else if (indexPath.row == 5) {
+            //TODO: Coming soon
+            //Account Statements
+            segueToComingSoonViewController()
         } else if (indexPath.row == 6) {
+            //TODO: Coming soon
+            //Transfer to Esusu
+            segueToComingSoonViewController()
+        } else if (indexPath.row == 7) {
+            //TODO: Coming soon
+            //Transfer to Bank
+            segueToComingSoonViewController()
+        } else if (indexPath.row == 8) {
             //Logout
             FirebaseAPI.sharedInstance.logout();
             self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
@@ -111,5 +123,10 @@ class MenuTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func segueToComingSoonViewController() {
+        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("comingSoon");
+        self.navigationController?.pushViewController(viewController!, animated: true);
+    }
 
 }

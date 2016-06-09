@@ -22,6 +22,11 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate{
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false;
+
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -43,6 +48,10 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate{
 
     func verifyPhoneNumberFailure() {
         
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true);
     }
     
     // MARK: - Navigation

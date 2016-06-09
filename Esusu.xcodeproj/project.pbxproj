@@ -29,12 +29,16 @@
 		846E2CC31CD6FBE000F293D2 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E2CC21CD6FBE000F293D2 /* ProfileTableViewController.swift */; };
 		846E2CC51CD700A900F293D2 /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E2CC41CD700A900F293D2 /* CodeViewController.swift */; };
 		846E2CC91CD7013600F293D2 /* MainApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846E2CC71CD7013600F293D2 /* MainApp.storyboard */; };
+		848FEE5F1D06A7B30046F593 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848FEE5C1D06A7B30046F593 /* FBSDKShareKit.framework */; };
+		848FEE601D06A7B30046F593 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848FEE5D1D06A7B30046F593 /* FBSDKCoreKit.framework */; };
+		848FEE611D06A7B30046F593 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848FEE5E1D06A7B30046F593 /* FBSDKLoginKit.framework */; };
+		848FEE641D08F8C10046F593 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848FEE631D08F8C10046F593 /* EditAccountViewController.swift */; };
 		84D2C7971CFA545B0080BDC1 /* ViewUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D2C7961CFA545B0080BDC1 /* ViewUserTableViewController.swift */; };
 		84D2C79A1CFCF67A0080BDC1 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D2C7991CFCF67A0080BDC1 /* PaymentViewController.swift */; };
 		84D2C79C1CFD110E0080BDC1 /* StripeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D2C79B1CFD110E0080BDC1 /* StripeAPI.swift */; };
 		84D2C79E1CFD30530080BDC1 /* BankLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D2C79D1CFD30530080BDC1 /* BankLinkViewController.swift */; };
-		84D2C7A01CFD7E2A0080BDC1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84D2C79F1CFD7E2A0080BDC1 /* GoogleService-Info.plist */; };
 		84D2C7A21CFD87EA0080BDC1 /* JoinGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D2C7A11CFD87EA0080BDC1 /* JoinGroupViewController.swift */; };
+		84D2C7A41D0039160080BDC1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84D2C7A31D0039160080BDC1 /* GoogleService-Info.plist */; };
 		8E6C8AEF2CB8391C13FB8AC8 /* Pods_Esusu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6765C3C1251A38E40DD4303 /* Pods_Esusu.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,12 +68,16 @@
 		846E2CC21CD6FBE000F293D2 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		846E2CC41CD700A900F293D2 /* CodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
 		846E2CC81CD7013600F293D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainApp.storyboard; sourceTree = "<group>"; };
+		848FEE5C1D06A7B30046F593 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = Esusu/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		848FEE5D1D06A7B30046F593 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Esusu/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		848FEE5E1D06A7B30046F593 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Esusu/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		848FEE631D08F8C10046F593 /* EditAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
 		84D2C7961CFA545B0080BDC1 /* ViewUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUserTableViewController.swift; sourceTree = "<group>"; };
 		84D2C7991CFCF67A0080BDC1 /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		84D2C79B1CFD110E0080BDC1 /* StripeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeAPI.swift; sourceTree = "<group>"; };
 		84D2C79D1CFD30530080BDC1 /* BankLinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankLinkViewController.swift; sourceTree = "<group>"; };
-		84D2C79F1CFD7E2A0080BDC1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84D2C7A11CFD87EA0080BDC1 /* JoinGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGroupViewController.swift; sourceTree = "<group>"; };
+		84D2C7A31D0039160080BDC1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A4D0B8EEE055F08E6DDDE66A /* Pods-Esusu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esusu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Esusu/Pods-Esusu.debug.xcconfig"; sourceTree = "<group>"; };
 		F6765C3C1251A38E40DD4303 /* Pods_Esusu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Esusu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,6 +87,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				848FEE5F1D06A7B30046F593 /* FBSDKShareKit.framework in Frameworks */,
+				848FEE601D06A7B30046F593 /* FBSDKCoreKit.framework in Frameworks */,
+				848FEE611D06A7B30046F593 /* FBSDKLoginKit.framework in Frameworks */,
 				8E6C8AEF2CB8391C13FB8AC8 /* Pods_Esusu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +109,9 @@
 		774DFE96BDC852F40708A7F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				848FEE5C1D06A7B30046F593 /* FBSDKShareKit.framework */,
+				848FEE5D1D06A7B30046F593 /* FBSDKCoreKit.framework */,
+				848FEE5E1D06A7B30046F593 /* FBSDKLoginKit.framework */,
 				F6765C3C1251A38E40DD4303 /* Pods_Esusu.framework */,
 			);
 			name = Frameworks;
@@ -197,7 +211,7 @@
 		846E2C9B1CD6A3E500F293D2 /* Esusu */ = {
 			isa = PBXGroup;
 			children = (
-				84D2C79F1CFD7E2A0080BDC1 /* GoogleService-Info.plist */,
+				84D2C7A31D0039160080BDC1 /* GoogleService-Info.plist */,
 				84D2C7981CFCF6550080BDC1 /* Payments */,
 				8455359D1CE411330027226A /* SinchVerifyPhone */,
 				845535901CDC287B0027226A /* CreateGroupVC */,
@@ -219,6 +233,7 @@
 		846E2CB11CD6B36300F293D2 /* TabBarVCs */ = {
 			isa = PBXGroup;
 			children = (
+				848FEE621D08F8B40046F593 /* Settings */,
 				845535861CDB08A70027226A /* Group */,
 				8455358B1CDB118A0027226A /* People */,
 				8455358C1CDB11980027226A /* Profile */,
@@ -234,6 +249,14 @@
 				846E2CC41CD700A900F293D2 /* CodeViewController.swift */,
 			);
 			name = IntroVCs;
+			sourceTree = "<group>";
+		};
+		848FEE621D08F8B40046F593 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				848FEE631D08F8C10046F593 /* EditAccountViewController.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		84D2C7981CFCF6550080BDC1 /* Payments */ = {
@@ -280,7 +303,7 @@
 				TargetAttributes = {
 					846E2C981CD6A3E400F293D2 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = X8C323275L;
+						DevelopmentTeam = V7WDLW3SA2;
 					};
 				};
 			};
@@ -309,9 +332,9 @@
 			files = (
 				846E2CAA1CD6A3E500F293D2 /* LaunchScreen.storyboard in Resources */,
 				846E2CA71CD6A3E500F293D2 /* Assets.xcassets in Resources */,
-				84D2C7A01CFD7E2A0080BDC1 /* GoogleService-Info.plist in Resources */,
 				846E2CA21CD6A3E500F293D2 /* Main.storyboard in Resources */,
 				846E2CC91CD7013600F293D2 /* MainApp.storyboard in Resources */,
+				84D2C7A41D0039160080BDC1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +405,7 @@
 				8422D1831CD7EEBF00E36251 /* FirebaseAPI.swift in Sources */,
 				846E2CBD1CD6FA4B00F293D2 /* MenuTableViewController.swift in Sources */,
 				8455358A1CDB0C600027226A /* ChatMessagingViewController.swift in Sources */,
+				848FEE641D08F8C10046F593 /* EditAccountViewController.swift in Sources */,
 				846E2CB91CD6F93D00F293D2 /* GroupTableViewController.swift in Sources */,
 				84D2C79E1CFD30530080BDC1 /* BankLinkViewController.swift in Sources */,
 				846E2CA51CD6A3E500F293D2 /* Esusu.xcdatamodeld in Sources */,
@@ -515,11 +539,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Esusu",
+				);
 				INFOPLIST_FILE = Esusu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Gu-Studios.Esusu";
+				PRODUCT_BUNDLE_IDENTIFIER = com.esusu.gustudios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -528,12 +558,18 @@
 			baseConfigurationReference = 166CA41DA19423E6E0771C43 /* Pods-Esusu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Esusu",
+				);
 				INFOPLIST_FILE = Esusu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Gu-Studios.Esusu";
+				PRODUCT_BUNDLE_IDENTIFIER = com.esusu.gustudios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

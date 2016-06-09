@@ -29,6 +29,9 @@ class GroupTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false;
+
+        
         let user = FIRAuth.auth()?.currentUser;
         
         FirebaseAPI.sharedInstance.rootRef.child("groups").observeSingleEventOfType(.Value, withBlock: { snapshot in
