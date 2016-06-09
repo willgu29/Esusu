@@ -8,6 +8,11 @@
 
 import UIKit
 
+
+//A subclass of PeopleTableViewController which fetches users from firebase and displays the user string
+
+//TODO: This subclass should automatically select the current user to add them to the group. Don't let the user uncheck it.
+
 class AddMembersTableViewController: PeopleTableViewController {
 
     var delegate: CreateNewGroupViewController!
@@ -20,8 +25,8 @@ class AddMembersTableViewController: PeopleTableViewController {
     }
 
   
-    //TODO: Select yourself: or don't show
     
+    //We save the user object (view in firebase) and their Id for easy referencing.
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let cell = tableView.cellForRowAtIndexPath(indexPath);
@@ -43,6 +48,7 @@ class AddMembersTableViewController: PeopleTableViewController {
     }
 
     @IBAction func addMembers(sender: UIButton) {
+        //Send this information to the delegate (CreateGroupVC)
         self.delegate.setMembersFrom(selectedPeople, ids: selectedIds);
         self.navigationController?.popViewControllerAnimated(true);
 

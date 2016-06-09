@@ -10,6 +10,9 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
+//This class displays for the members that are in the group
+//Will need to show members in group, give them a way to chat, and a way to know when the next payment dates are and who is getting paid
+
 class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var groupName: UILabel!

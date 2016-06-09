@@ -9,6 +9,10 @@
 import UIKit
 import Stripe
 
+
+//This class displays the Stripe Card TextField
+//The StripeAPI (in API folder) will then create a customer.
+
 class PaymentViewController: UIViewController, STPPaymentCardTextFieldDelegate, UITextFieldDelegate {
 
     let paymentTextField = STPPaymentCardTextField()

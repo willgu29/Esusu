@@ -10,6 +10,9 @@ import UIKit
 import Stripe
 import Alamofire
 
+//The backend is hosted on heroku (for Stripe and Plaid)
+//Data is being stored via Firebase.
+
 class StripeAPI: NSObject {
 
     static let sharedInstance = StripeAPI();
@@ -17,7 +20,7 @@ class StripeAPI: NSObject {
     let ROOT_URL = "https://esusu.herokuapp.com"
 
     
-    
+    //Creates a customer from a stripe token, an email is needed for receipts to be sent
     func createCustomer(stripeToken: STPToken, email: String) {
         
         Alamofire.request(.POST, "https://esusu.herokuapp.com/createCustomer",
@@ -38,6 +41,8 @@ class StripeAPI: NSObject {
                         //customer created
                         let customer = JSON.valueForKey("customer");
                         let customerId = customer?.valueForKey("id");
+                        
+                        //we save the customerId on the local device for now as an easy way to charge this customer in the future
                         NSUserDefaults.standardUserDefaults().setObject(customerId, forKey: "customerId");
                     } else {
                         //customer not created
@@ -51,6 +56,8 @@ class StripeAPI: NSObject {
     }
     
     func chargeCustomer() {
+        
+        //we need this ID to charge the customer
         let localCustomerId = NSUserDefaults.standardUserDefaults().stringForKey("customerId");
         
         Alamofire.request(.POST, "https://esusu.herokuapp.com/chargeCustomer",

@@ -8,6 +8,9 @@
 
 import UIKit
 
+//Display public facing user profile:
+//TODO: Display the data: blurb, profile picture, rating, etc.
+
 class ViewUserTableViewController: UITableViewController {
 
 //    var groupsPartOf: [AnyObject]!

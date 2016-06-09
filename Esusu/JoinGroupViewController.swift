@@ -8,6 +8,8 @@
 
 import UIKit
 
+//TODO: Allow user to request to join group
+
 class JoinGroupViewController: UIViewController {
 
     override func viewDidLoad() {

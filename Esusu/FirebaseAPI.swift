@@ -24,7 +24,8 @@ class FirebaseAPI: NSObject {
     var delegate: FirebaseAPIDelegate?
     var currentSessionUID: String?
     
-    //required to add to end of phone number
+    //******* required to add to end of phone number ********
+    //Explanation: Firebase does not allow for phone number login, so I'm appending @esusu.com to the end to enable it. The func username(phoneNumber) is to be used for login, although the phoneNumber on its own (just digits) is saved to the user object in firebase as: key --> phoneNumber
     let EMAIL_DOMAIN = "@esusu.com";
     
     
@@ -43,6 +44,9 @@ class FirebaseAPI: NSObject {
     
     
     //MARK: Users
+    
+    
+    //TODO: Create delegate, currently just typing this in each separate view controller :(
     func getUsers() {
         rootRef.child(USER_ROUTE).observeEventType(.Value, withBlock: { snapshot in
             print(snapshot.value)
@@ -50,6 +54,7 @@ class FirebaseAPI: NSObject {
             print(error.description)
         })
     }
+    
     
     func createUser(phoneNumber: String, password: String, fullName: String) {
         
@@ -68,6 +73,7 @@ class FirebaseAPI: NSObject {
                 self.currentSessionUID = uid;
                 print("Successfully created user account with uid: \(uid)")
                 
+                //Adds data to our newly created user
                 self.updateUser(uid!, user: userData);
             }
 

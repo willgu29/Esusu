@@ -8,8 +8,14 @@
 
 import UIKit
 
+//This class reflects the menu options in Esusu. 
+//Reference storyboard
+
+
 class MenuTableViewController: UITableViewController {
 
+    let NUMBER_OF_ROWS_IN_TABLVIEW = 9;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,7 +40,7 @@ class MenuTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 9;
+        return NUMBER_OF_ROWS_IN_TABLVIEW;
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

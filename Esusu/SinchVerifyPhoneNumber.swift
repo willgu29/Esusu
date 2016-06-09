@@ -62,7 +62,8 @@ class SinchVerifyPhoneNumber: NSObject {
                 self.enterCodeDelegate?.verificationSuccess();
             } else {
                 print("Failure");
-                //Oh noo, re-try
+                //TODO: Retry verification, send them a new code
+                
             }
         });
     }

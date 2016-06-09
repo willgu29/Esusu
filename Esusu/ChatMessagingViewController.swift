@@ -9,6 +9,7 @@
 import UIKit
 let DEBUG_CUSTOM_TYPING_INDICATOR = false
 
+//TODO: Implement chat
 
 class ChatMessagingViewController: UIViewController {
 

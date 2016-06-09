@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		84078A0C1CF6B30F005902AF /* AddMembersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84078A0B1CF6B30F005902AF /* AddMembersTableViewController.swift */; };
 		8422D1831CD7EEBF00E36251 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422D1821CD7EEBF00E36251 /* FirebaseAPI.swift */; };
-		8422D1861CD7FF8300E36251 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422D1851CD7FF8300E36251 /* User.swift */; };
-		8422D1881CD7FFAF00E36251 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422D1871CD7FFAF00E36251 /* Group.swift */; };
 		845535881CDB08CD0027226A /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845535871CDB08CD0027226A /* GroupViewController.swift */; };
 		8455358A1CDB0C600027226A /* ChatMessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845535891CDB0C600027226A /* ChatMessagingViewController.swift */; };
 		845535921CDC28970027226A /* CreateNewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845535911CDC28970027226A /* CreateNewGroupViewController.swift */; };
@@ -46,8 +44,6 @@
 		166CA41DA19423E6E0771C43 /* Pods-Esusu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Esusu.release.xcconfig"; path = "Pods/Target Support Files/Pods-Esusu/Pods-Esusu.release.xcconfig"; sourceTree = "<group>"; };
 		84078A0B1CF6B30F005902AF /* AddMembersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMembersTableViewController.swift; sourceTree = "<group>"; };
 		8422D1821CD7EEBF00E36251 /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
-		8422D1851CD7FF8300E36251 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		8422D1871CD7FFAF00E36251 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		845535871CDB08CD0027226A /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		845535891CDB0C600027226A /* ChatMessagingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessagingViewController.swift; sourceTree = "<group>"; };
 		845535911CDC28970027226A /* CreateNewGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewGroupViewController.swift; sourceTree = "<group>"; };
@@ -124,15 +120,6 @@
 				84D2C79B1CFD110E0080BDC1 /* StripeAPI.swift */,
 			);
 			name = API;
-			sourceTree = "<group>";
-		};
-		8422D1841CD7FF7000E36251 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				8422D1851CD7FF8300E36251 /* User.swift */,
-				8422D1871CD7FFAF00E36251 /* Group.swift */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		845535861CDB08A70027226A /* Group */ = {
@@ -216,7 +203,6 @@
 				8455359D1CE411330027226A /* SinchVerifyPhone */,
 				845535901CDC287B0027226A /* CreateGroupVC */,
 				8455358D1CDC25EE0027226A /* Storyboards */,
-				8422D1841CD7FF7000E36251 /* Models */,
 				8422D1811CD7EEAF00E36251 /* API */,
 				846E2CC61CD700BA00F293D2 /* IntroVCs */,
 				846E2CB11CD6B36300F293D2 /* TabBarVCs */,
@@ -396,7 +382,6 @@
 				845535A11CE4134F0027226A /* LoginViewController.swift in Sources */,
 				845535881CDB08CD0027226A /* GroupViewController.swift in Sources */,
 				84D2C7A21CFD87EA0080BDC1 /* JoinGroupViewController.swift in Sources */,
-				8422D1881CD7FFAF00E36251 /* Group.swift in Sources */,
 				84D2C7971CFA545B0080BDC1 /* ViewUserTableViewController.swift in Sources */,
 				846E2CC31CD6FBE000F293D2 /* ProfileTableViewController.swift in Sources */,
 				845535921CDC28970027226A /* CreateNewGroupViewController.swift in Sources */,
@@ -415,7 +400,6 @@
 				8455359F1CE411670027226A /* SinchVerifyPhoneNumber.swift in Sources */,
 				846E2C9D1CD6A3E500F293D2 /* AppDelegate.swift in Sources */,
 				8455359A1CDC299C0027226A /* PaymentScheduleTableViewController.swift in Sources */,
-				8422D1861CD7FF8300E36251 /* User.swift in Sources */,
 				84078A0C1CF6B30F005902AF /* AddMembersTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

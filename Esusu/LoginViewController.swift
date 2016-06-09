@@ -24,13 +24,17 @@ class LoginViewController: UIViewController, FirebaseAPIDelegate, FBSDKLoginButt
         // Do any additional setup after loading the view.
         
         
-        //FB Login, disabled for now: need to save created account to Firebase /users endpoint (name, phone number, etc.)
-//        let loginButton = FBSDKLoginButton();
-//        loginButton.delegate = self;
-//        loginButton.center = self.view.center;
-//        self.view.addSubview(loginButton);
+        /*FB Login, disabled for now: need to save created account to Firebase /users endpoint (name, phone number, etc. Uncomment for FB login (but will need to pipeline data to firebase still)
+        
+        let loginButton = FBSDKLoginButton();
+        loginButton.delegate = self;
+        loginButton.center = self.view.center;
+        self.view.addSubview(loginButton);
+        
+         */
     }
     
+    /* Uncomment for FB login
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError?) {
         if let error = error {
             print(error.localizedDescription)
@@ -46,6 +50,8 @@ class LoginViewController: UIViewController, FirebaseAPIDelegate, FBSDKLoginButt
     func loginButtonDidLogOut(loginButton:FBSDKLoginButton){
     
     }
+    */
+    
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true;
@@ -53,6 +59,7 @@ class LoginViewController: UIViewController, FirebaseAPIDelegate, FBSDKLoginButt
     
     
     override func viewDidAppear(animated: Bool) {
+        //If user is logged in, take them to the app
         if let user = FIRAuth.auth()?.currentUser {
             // User is signed in.
             print(user);
@@ -106,7 +113,7 @@ class LoginViewController: UIViewController, FirebaseAPIDelegate, FBSDKLoginButt
         // Pass the selected object to the new view controller.
         
         if (segue.identifier == "toMainApp") {
-            //Verify login
+            
         } else {
             //Create account screen
         }

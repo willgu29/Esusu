@@ -8,6 +8,8 @@
 
 import UIKit
 
+//TODO: Allow users to edit account (rating, 100 word blurb, profile picture, etc.)
+
 class EditAccountViewController: UIViewController {
 
     override func viewDidLoad() {

@@ -8,6 +8,8 @@
 
 import UIKit
 
+//Displays all the people on Esusu
+
 class PeopleTableViewController: UITableViewController {
 
 
@@ -31,7 +33,7 @@ class PeopleTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         // Retrieve new users as they are added to our database
         FirebaseAPI.sharedInstance.rootRef.child("users").observeSingleEventOfType(.Value, withBlock: { snapshot in
-            // do some stuff once
+            
             print(snapshot);
             let ids = snapshot.value as? NSDictionary
             if (ids == nil) {
@@ -39,6 +41,8 @@ class PeopleTableViewController: UITableViewController {
             }
             let newArray = NSMutableArray();
             let newUserIdsArray = NSMutableArray();
+            
+            //Get the userIds and user objects
             for userId in ids! {
                 newUserIdsArray.addObject(userId.key);
                 newArray.addObject(userId.value);
@@ -78,7 +82,7 @@ class PeopleTableViewController: UITableViewController {
         let phoneNumber = userObject.valueForKey("phoneNumber");
         
         // Configure the cell...
-        cell.textLabel?.text = fullName as! String;
+        cell.textLabel?.text = fullName as? String;
 
         return cell
     }
@@ -101,7 +105,6 @@ class PeopleTableViewController: UITableViewController {
             let userViewVC = segue.destinationViewController as! ViewUserTableViewController
             userViewVC.name = self.selectedUser.valueForKey("fullName") as! String
             
-//            userViewVC.groupsPartOf = 
         }
         
     }

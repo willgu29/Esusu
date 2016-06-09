@@ -32,8 +32,7 @@ class GroupTableViewController: UITableViewController {
         self.navigationController?.navigationBarHidden = false;
 
         
-        let user = FIRAuth.auth()?.currentUser;
-        
+        //Get all the groups and add them to our groups array
         FirebaseAPI.sharedInstance.rootRef.child("groups").observeSingleEventOfType(.Value, withBlock: { snapshot in
             // do some stuff once
             print(snapshot);
@@ -94,12 +93,14 @@ class GroupTableViewController: UITableViewController {
         let ids =  self.selectedGroup.valueForKey("ids") as! NSArray
         var userInGroup = false;
         
+        //Determine if the current user is in this group or not by looping through userIds
         for id in ids {
             if (currentUser?.uid == (id as! String)) {
                 userInGroup = true;
             }
         }
         
+        //If in group, go to group view, otherwise, display joinGroup options
         if (userInGroup) {
             self.performSegueWithIdentifier("toGroup", sender: self);
         } else {
@@ -109,40 +110,6 @@ class GroupTableViewController: UITableViewController {
     }
     
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     
     // MARK: - Navigation

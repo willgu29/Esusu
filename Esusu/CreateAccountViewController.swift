@@ -35,6 +35,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate{
     
     @IBAction func createAccount(sender: UIButton) {
         FirebaseAPI.sharedInstance.createUser(phoneNumber.text!, password: password.text!, fullName: fullName.text!);
+        
+        //Sinch will send a phone number verification
         SinchVerifyPhoneNumber.sharedInstance.createAccountDelegate  = self;
         SinchVerifyPhoneNumber.sharedInstance.verifyPhoneNumber(phoneNumber.text!);
         

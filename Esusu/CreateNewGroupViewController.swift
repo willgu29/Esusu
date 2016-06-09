@@ -11,12 +11,14 @@ import UIKit
 class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
 
     
+    //TODO: Some way to set the amount charged per schedule
+    //TODO: Some way to set up a cron job for notifications on the appropriate dates that the user needs to pay the group
+    
+    
     @IBOutlet weak var groupName: UITextField!
     @IBOutlet weak var paymentSchedule: UITextField!
     @IBOutlet weak var addMembers: UITextField!
-    
-//    var name: String = ""
-//    var schedule: String = ""
+
     var members: NSMutableArray = [] //of UIDs prob
     var userIds: NSMutableArray = []
     
@@ -36,7 +38,7 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func createGroup(sender: UIButton) {
-        //TODO: Create that group via Firebase
+        //TODO: Create that group via Firebase, saving the member objects and userIds involved
         FirebaseAPI.sharedInstance.createGroup(groupName.text!, paymentSchedule: paymentSchedule.text!, members: self.members, ids: self.userIds);
         
         
@@ -57,13 +59,16 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         
-        
+        //segue to separate tableview to choose payment schedule
         if (textField == paymentSchedule) {
             let paymentVC = self.storyboard?.instantiateViewControllerWithIdentifier("PaymentScheduleVC") as! PaymentScheduleTableViewController
             paymentVC.delegate = self;
             self.navigationController?.pushViewController(paymentVC, animated: true);
             return false;
+        //segue to separate tableview to choose members in group
         } else if (textField == addMembers) {
+            //TODO: currently doesn't automatically add the current user to group automatically
+            //TOOD: Think they wanted an invite system, so would need to add that to the database as well
             let addMembersVC = self.storyboard?.instantiateViewControllerWithIdentifier("AddMembersVC") as! AddMembersTableViewController
             addMembersVC.delegate = self;
             self.navigationController?.pushViewController(addMembersVC, animated: true);
@@ -73,6 +78,7 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
         return true;
     }
     
+    //MARK: Delegate methods
     
     let scheduleOptions: [String] = ["Weekly", "Bi-weekly", "Monthly"];
     internal func setScheduleFrom(rowNumber: Int) {
@@ -89,6 +95,10 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
         addMembers.text = constructMemberString();
     }
     
+    
+    //MARK: Helper method 
+    
+    //Formats string for who is in group textfield
     func constructMemberString() -> String {
         var memberNamesArray: [String] = [];
         
