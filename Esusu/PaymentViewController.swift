@@ -47,6 +47,16 @@ class PaymentViewController: UIViewController, STPPaymentCardTextFieldDelegate, 
     
     
     @IBAction func save(sender: UIButton) {
+        if (emailField.text?.isEmpty == true) {
+            let alertViewVC = UIAlertController(title: "Error", message: "Please enter an email", preferredStyle: UIAlertControllerStyle.Alert)
+            let okayAction = UIAlertAction(title: "Okay", style: .Default) { (action) in
+                //...
+            }
+            alertViewVC.addAction(okayAction)
+            self.tabBarController!.presentViewController(alertViewVC, animated: true, completion:nil)
+            return;
+        }
+        
         let card = paymentTextField.cardParams;
         STPAPIClient.sharedClient().createTokenWithCard(card) { (token, error) -> Void in
             if let error = error  {

@@ -104,6 +104,7 @@ class PeopleTableViewController: UITableViewController {
         if (segue.identifier == "toUserView") {
             let userViewVC = segue.destinationViewController as! ViewUserTableViewController
             userViewVC.name = self.selectedUser.valueForKey("fullName") as! String
+            userViewVC.phoneNumber = self.selectedUser.valueForKey("phoneNumber") as! String
             
         }
         

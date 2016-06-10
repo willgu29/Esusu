@@ -13,9 +13,15 @@ import Alamofire
 //The backend is hosted on heroku (for Stripe and Plaid)
 //Data is being stored via Firebase.
 
+protocol StripeAPIDelegate {
+    func chargeSuccess();
+    func chargeFailure();
+}
+
 class StripeAPI: NSObject {
 
     static let sharedInstance = StripeAPI();
+    var delegate: StripeAPIDelegate?
     
     let ROOT_URL = "https://esusu.herokuapp.com"
 
@@ -55,15 +61,18 @@ class StripeAPI: NSObject {
         
     }
     
-    func chargeCustomer() {
+    func chargeCustomer(amount: Int) {
         
         //we need this ID to charge the customer
         let localCustomerId = NSUserDefaults.standardUserDefaults().stringForKey("customerId");
         
+        let amountCents = amount*100;
+        
         Alamofire.request(.POST, "https://esusu.herokuapp.com/chargeCustomer",
             parameters: [
                 "customerId" : localCustomerId!,
-                "description": "Esusu charge"])
+                "description": "Esusu charge",
+                "amount": amountCents])
             .responseJSON { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response
@@ -75,8 +84,10 @@ class StripeAPI: NSObject {
                     let status = JSON.valueForKey("status") as! Int
                     if (status == 1) {
                         //charge success
+                        self.delegate?.chargeSuccess();
                     } else {
                         //charge failed
+                        self.delegate?.chargeFailure()
                     }
                 }
         }

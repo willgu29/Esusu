@@ -122,18 +122,18 @@ class FirebaseAPI: NSObject {
     
     //MARK: Groups
     
-    func createGroup(name: String, paymentSchedule: String, members: NSMutableArray, ids: NSMutableArray) {
+    func createGroup(name: String, paymentSchedule: String, members: NSMutableArray, ids: NSMutableArray, amount: Int) {
         let uuid = NSUUID().UUIDString
         let dateCreated = NSDate().timeIntervalSince1970;
         let currentUserId = FIRAuth.auth()?.currentUser!.uid
-
         
         let group: [String: AnyObject] = ["name": name,
                                     "paymentSchedule":paymentSchedule,
                                     "members":members,
                                     "ids": ids,
                                     "admin": currentUserId!,
-                                    "createdDate": dateCreated];
+                                    "dateCreated": dateCreated,
+                                    "amount": amount];
         
         let thisGroupRef = rootRef.child(GROUP_ROUTE+uuid);
         thisGroupRef.setValue(group);

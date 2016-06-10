@@ -16,6 +16,7 @@ class ViewUserTableViewController: UITableViewController {
 //    var groupsPartOf: [AnyObject]!
     
     var name: String!
+    var phoneNumber: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +61,7 @@ class ViewUserTableViewController: UITableViewController {
         if (section == 0) {
             return "NAME"
         } else if (section == 1) {
-            return "STATS"
+            return "PHONE NUMBER"
         } else if (section == 2) {
             return "GROUPS PART OF";
         } else  {
@@ -76,7 +77,7 @@ class ViewUserTableViewController: UITableViewController {
         if (indexPath.section == 0) {
             cell.textLabel?.text = self.name;
         } else if (indexPath.section == 1) {
-            cell.textLabel?.text = "Reliability 90%";
+            cell.textLabel?.text = self.phoneNumber;
         } else if (indexPath.section == 2) {
             //TODO: Get group name
             cell.textLabel?.text = "Coming soon!";

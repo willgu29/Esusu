@@ -14,9 +14,14 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
     //TODO: Some way to set the amount charged per schedule
     //TODO: Some way to set up a cron job for notifications on the appropriate dates that the user needs to pay the group
     
+    let ERROR_NO_MEMBERS = 0;
+    let ERROR_NO_SCHEDULE = 1;
+    let ERROR_NO_AMOUNT = 2;
+    let ERROR_NO_NAME = 3;
     
     @IBOutlet weak var groupName: UITextField!
     @IBOutlet weak var paymentSchedule: UITextField!
+    @IBOutlet weak var amount: UITextField!
     @IBOutlet weak var addMembers: UITextField!
 
     var members: NSMutableArray = [] //of UIDs prob
@@ -29,6 +34,7 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
         
         groupName.keyboardType = UIKeyboardType.Default;
         addMembers.keyboardType = UIKeyboardType.Default;
+        amount.keyboardType = UIKeyboardType.NumberPad;
         
     }
 
@@ -37,12 +43,52 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func sendErrorAlert(errorNumber: Int) {
+        
+        var message: String!
+        let title = "Error";
+        
+        if (errorNumber == ERROR_NO_MEMBERS) {
+            message = "Please add members to your group.";
+        } else if (errorNumber == ERROR_NO_SCHEDULE) {
+            message = "Please select a payment schedule.";
+        } else if (errorNumber == ERROR_NO_AMOUNT) {
+            message = "Please enter in an amount to be charged according to schedule for your group.";
+        } else if (errorNumber == ERROR_NO_NAME) {
+            message = "Please enter in a group name";
+        }
+        
+        let alertViewVC = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .Default) { (action) in
+            //...
+        }
+        alertViewVC.addAction(okayAction)
+        self.tabBarController!.presentViewController(alertViewVC, animated: true, completion:nil)
+        
+    }
+    
     @IBAction func createGroup(sender: UIButton) {
         
         //TODO: Add error handling, make sure all fields are filled.
+        if ((addMembers.text?.isEmpty) == nil) {
+            sendErrorAlert(ERROR_NO_MEMBERS)
+            return;
+        } else if ((paymentSchedule.text?.isEmpty) == nil) {
+            sendErrorAlert(ERROR_NO_SCHEDULE);
+            return;
+        } else if ((amount.text?.isEmpty) == nil) {
+            sendErrorAlert(ERROR_NO_AMOUNT);
+            return;
+        } else if ((groupName.text?.isEmpty) == nil) {
+            sendErrorAlert(ERROR_NO_NAME);
+            return;
+        }
+        
+        
+        let amountInt = Int(self.amount.text!);
         
         //Create that group via Firebase, saving the member objects and userIds involved
-        FirebaseAPI.sharedInstance.createGroup(groupName.text!, paymentSchedule: paymentSchedule.text!, members: self.members, ids: self.userIds);
+        FirebaseAPI.sharedInstance.createGroup(groupName.text!, paymentSchedule: paymentSchedule.text!, members: self.members, ids: self.userIds, amount: amountInt!);
         
         
         self.navigationController?.popViewControllerAnimated(true);
@@ -83,7 +129,7 @@ class CreateNewGroupViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Delegate methods
     
-    let scheduleOptions: [String] = ["Weekly", "Bi-weekly", "Monthly"];
+    let scheduleOptions: [String] = ["Every Monday (weekly)", "On the 1st (monthly)", "On the 1st and 15th (bi-weekly)"];
     internal func setScheduleFrom(rowNumber: Int) {
         if (rowNumber == -1) {
             //Schedule not set

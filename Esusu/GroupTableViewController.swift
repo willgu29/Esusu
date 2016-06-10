@@ -12,10 +12,10 @@ import FirebaseAuth
 
 class GroupTableViewController: UITableViewController {
 
-    
+    var groupsIds = [];
     var groups = [];
     var selectedGroup: AnyObject!
-    
+    var selectedGroupId: String!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,10 +41,14 @@ class GroupTableViewController: UITableViewController {
                 return;
             }
             let newArray = NSMutableArray();
+            let newGroupIdsArray = NSMutableArray();
+
             for groupIds in ids! {
                 newArray.addObject(groupIds.value);
+                newGroupIdsArray.addObject(groupIds.key);
             }
             self.groups = newArray;
+            self.groupsIds = newGroupIdsArray
             self.tableView.reloadData();
         });
     }
@@ -87,7 +91,7 @@ class GroupTableViewController: UITableViewController {
         print(indexPath);
         
         self.selectedGroup = self.groups.objectAtIndex(indexPath.row);
-        
+        self.selectedGroupId = self.groupsIds.objectAtIndex(indexPath.row) as! String;
         
         let currentUser = FIRAuth.auth()?.currentUser;
         let ids =  self.selectedGroup.valueForKey("ids") as! NSArray
@@ -121,8 +125,12 @@ class GroupTableViewController: UITableViewController {
         
         if (segue.identifier == "toGroup") {
             let groupViewVC = segue.destinationViewController as! GroupViewController
-            groupViewVC.name = self.selectedGroup.valueForKey("name") as! String;
+            groupViewVC.id = self.selectedGroupId;
+            groupViewVC.name = self.selectedGroup.valueForKey("name") as! String
             groupViewVC.usersInGroup = self.selectedGroup.valueForKey("members") as! NSArray
+            groupViewVC.amount = self.selectedGroup.valueForKey("amount") as! Int
+            groupViewVC.paymentSchedule = self.selectedGroup.valueForKey("paymentSchedule") as! String
+            groupViewVC.dateCreated = self.selectedGroup.valueForKey("dateCreated") as! NSTimeInterval
 
         } else if (segue.identifier == "toJoinGroup") {
             

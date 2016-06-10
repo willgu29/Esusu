@@ -7,11 +7,9 @@
 //
 
 import UIKit
-
-
+import Firebase
+import FirebaseAuth
 //A subclass of PeopleTableViewController which fetches users from firebase and displays the user string
-
-//TODO: This subclass should automatically select the current user to add them to the group. Don't let the user uncheck it.
 
 class AddMembersTableViewController: PeopleTableViewController {
 
@@ -19,12 +17,28 @@ class AddMembersTableViewController: PeopleTableViewController {
 
     var selectedPeople: NSMutableArray = [];
     var selectedIds: NSMutableArray = [];
+    
+    var rowUserIn: Int?
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-  
+
+    override func viewDidAppear(animated: Bool) {
+        let currentUser = FIRAuth.auth()?.currentUser;
+        
+        for userId in self.userIds {
+            if (userId as! String == currentUser!.uid) {
+                rowUserIn = self.userIds.indexOfObject(userId);
+            }
+        }
+        
+        //Checkmark current user (to add to group)
+        let indexPath = NSIndexPath(forRow: rowUserIn!, inSection: 0);
+        self.performSelector(#selector(UITableViewDelegate.tableView(_:didSelectRowAtIndexPath:)), withObject: self.tableView, withObject: indexPath);
+    }
     
     //We save the user object (view in firebase) and their Id for easy referencing.
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
